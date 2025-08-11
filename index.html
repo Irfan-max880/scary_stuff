@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Birthday Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            transition: all 1s ease;
+        }
+
+        .container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scary-screen, .happy-screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scary-screen h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: red;
+            text-shadow: 0 0 10px red;
+        }
+
+        .ghost {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 50% 50% 0 0;
+            position: relative;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .ghost:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+            top: 80px;
+            left: 50px;
+            box-shadow: 60px 0 0 black;
+        }
+
+        .ghost:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: white;
+            top: 150px;
+            left: 0;
+            clip-path: polygon(0% 0%, 100% 0%, 90% 30%, 70% 10%, 50% 30%, 30% 10%, 10% 30%, 0% 0%);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Happy Screen */
+        .happy-screen {
+            background-color: #ffcce6;
+            display: none;
+        }
+
+        .happy-screen h1 {
+            color: #ff3399;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ff6699;
+        }
+
+        .happy-screen p {
+            color: #333;
+            font-size: 1.4rem;
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .cats {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cat {
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            border: 4px solid #ff3399;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scary-screen" id="scaryScreen">
+            <h1>BEWARE ANJUM!</h1>
+            <div class="ghost"></div>
+            <p>There's something behind you... Don't scream...</p>
+            <button id="helpBtn">HELP ME!</button>
+        </div>
+
+        <div class="happy-screen" id="happyScreen">
+            <h1>HAPPY BIRTHDAY ANJUM 🎉</h1>
+            <p>SURPRISE! 😄 It was just a prank! Wishing you the happiest birthday filled with love, laughter, and cats! ❤️</p>
+            
+            <!-- YouTube Embed of the song -->
+            <iframe width="0" height="0" src="https://www.youtube.com/embed/zmb8CBXyZOk?autoplay=1&loop=1&playlist=zmb8CBXyZOk" frameborder="0" allow="autoplay"></iframe>
+
+            <p>Since you love cats, here are some cuties for you:</p>
+            <div class="cats">
+                <div class="cat" style="background-image:url('https://placekitten.com/200/200')"></div>
+                <div class="cat" style="background-image:url('https://placekitten.com/201/200')"></div>
+                <div class="cat" style="background-image:url('https://placekitten.com/202/200')"></div>
+            </div>
+            <p>Don't search for cats images the ghosts already ate them...hehe 💌</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('helpBtn').addEventListener('click', () => {
+            document.getElementById('scaryScreen').style.display = 'none';
+            document.getElementById('happyScreen').style.display = 'flex';
+            document.body.style.backgroundColor = '#ffcce6';
+        });
+    </script>
+</body>
+</html>
